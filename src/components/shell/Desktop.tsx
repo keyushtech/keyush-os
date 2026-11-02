@@ -1,4 +1,3 @@
-import { ownerProfile } from '../../data/ownerProfile';
 import { AppGrid } from './AppGrid';
 import { DesktopIdentity } from './DesktopIdentity';
 import type { AppId } from '../../types';
@@ -45,7 +44,7 @@ export function Desktop({ onOpen, openAppIds }: DesktopProps) {
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 100% 100% at 50% 30%, rgba(10, 10, 12, 0.40) 0%, rgba(10, 10, 12, 0.72) 100%)',
+          background: 'radial-gradient(ellipse 100% 100% at 50% 45%, rgba(10, 10, 12, 0.50) 0%, rgba(10, 10, 12, 0.78) 100%)',
           zIndex: 1,
         }}
         aria-hidden="true"
@@ -89,101 +88,6 @@ export function Desktop({ onOpen, openAppIds }: DesktopProps) {
 
       {/* Center: Identity block */}
       <DesktopIdentity onOpen={onOpen} />
-
-      {/* Bottom-right: folded corner CTA */}
-      <FoldedCornerCTA />
-
-      {/* Bottom-left: proof metrics pill */}
-      <MetricsPill />
-    </div>
-  );
-}
-
-function FoldedCornerCTA() {
-  return (
-    <a
-      href={ownerProfile.conversion.buildThisUrl}
-      target="_blank"
-      rel="noreferrer noopener"
-      aria-label="View this OS on GitHub"
-      style={{
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        width: '140px',
-        height: '140px',
-        zIndex: 500,
-        overflow: 'hidden',
-        display: 'block',
-        textDecoration: 'none',
-      }}
-    >
-      {/* Triangle SVG */}
-      <svg
-        viewBox="0 0 140 140"
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-        aria-hidden="true"
-      >
-        <polygon points="140,0 140,140 0,140" fill="rgba(14,14,18,0.90)" />
-        <polygon points="140,20 140,140 20,140" fill="#38BDF8" opacity="0.85" />
-      </svg>
-      <div style={{
-        position: 'absolute',
-        bottom: '22px',
-        right: '14px',
-        textAlign: 'right',
-        transform: 'rotate(-45deg)',
-        transformOrigin: 'bottom right',
-        lineHeight: 1.3,
-      }}>
-        <div style={{ fontSize: '10px', fontWeight: 700, color: '#0A0A0C', fontFamily: 'var(--macos-mono)', whiteSpace: 'nowrap' }}>
-          View on
-        </div>
-        <div style={{ fontSize: '10px', fontWeight: 700, color: '#0A0A0C', fontFamily: 'var(--macos-mono)', whiteSpace: 'nowrap' }}>
-          GitHub →
-        </div>
-      </div>
-    </a>
-  );
-}
-
-function MetricsPill() {
-  const metrics = ownerProfile.metrics.filter((m) => m.public).slice(0, 3);
-
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        bottom: '92px',
-        left: '16px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '6px',
-        zIndex: 500,
-      }}
-      aria-label="Key credentials"
-    >
-      {metrics.map((m) => (
-        <div
-          key={m.label}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(22,22,26,0.72)',
-            border: '1px solid var(--border-outer)',
-            borderRadius: '8px',
-            padding: '6px 12px',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-          }}
-        >
-          <span style={{ fontFamily: 'var(--macos-mono)', fontSize: '13px', fontWeight: 700, color: 'var(--accent)' }}>
-            {m.value}
-          </span>
-          <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{m.label}</span>
-        </div>
-      ))}
     </div>
   );
 }
