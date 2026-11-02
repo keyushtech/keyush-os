@@ -1,6 +1,6 @@
 # BASELINE INVENTORY — Keyush OS
 
-**Repository:** `github.com/keyushtech/<repo-name>` (to be set)  
+**Repository:** `https://github.com/keyushtech/keyush-os`  
 **Branch:** `main`  
 **Date:** 2026-11-02
 

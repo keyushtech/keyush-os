@@ -43,7 +43,7 @@ Push to GitHub and connect to [Vercel](https://vercel.com). Auto-deploys on `mai
 git init
 git add .
 git commit -m "feat: initial Keyush OS build"
-git remote add origin https://github.com/keyushtech/<repo-name>.git
+git remote add origin https://github.com/keyushtech/keyush-os.git
 git push -u origin main
 ```
 

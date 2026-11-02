@@ -45,7 +45,7 @@ export const ownerProfile = {
     emailDisplay: 'velagapudik@iitbhilai.ac.in',
     emergencyLabel: 'Email directly',
     emergencyUrl: 'mailto:velagapudik@iitbhilai.ac.in',
-    buildThisUrl: 'https://github.com/keyushtech',
+    buildThisUrl: 'https://github.com/keyushtech/keyush-os',
   },
 
   metrics: [
