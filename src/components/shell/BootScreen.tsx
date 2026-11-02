@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ownerProfile } from '../../data/ownerProfile';
 
 interface BootScreenProps {
@@ -17,36 +17,59 @@ const BOOT_LINES = [
 export function BootScreen({ onComplete }: BootScreenProps) {
   const [lines, setLines] = useState<string[]>([]);
   const [visible, setVisible] = useState(true);
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     try {
       if (sessionStorage.getItem('keyush-os-boot-seen')) {
-        onComplete();
+        onCompleteRef.current();
         return;
       }
     } catch {
       // ignore
     }
 
-    let i = 0;
-    const id = setInterval(() => {
-      if (i < BOOT_LINES.length) {
-        setLines((prev) => [...prev, BOOT_LINES[i]]);
-        i++;
-      } else {
-        clearInterval(id);
-        setTimeout(() => {
-          setVisible(false);
-          setTimeout(() => {
-            try { sessionStorage.setItem('keyush-os-boot-seen', '1'); } catch { /* */ }
-            onComplete();
-          }, 350);
-        }, 400);
-      }
-    }, 180);
+    const timers: number[] = [];
 
-    return () => clearInterval(id);
-  }, [onComplete]);
+    BOOT_LINES.forEach((line, index) => {
+      const t = window.setTimeout(() => {
+        setLines((prev) => [...prev, line]);
+      }, (index + 1) * 160);
+      timers.push(t);
+    });
+
+    const totalDuration = (BOOT_LINES.length + 1) * 160;
+    const fadeTimer = window.setTimeout(() => {
+      setVisible(false);
+      const doneTimer = window.setTimeout(() => {
+        try {
+          sessionStorage.setItem('keyush-os-boot-seen', '1');
+        } catch {
+          // ignore
+        }
+        onCompleteRef.current();
+      }, 350);
+      timers.push(doneTimer);
+    }, totalDuration);
+    timers.push(fadeTimer);
+
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t));
+    };
+  }, []);
+
+  const handleSkip = () => {
+    try {
+      sessionStorage.setItem('keyush-os-boot-seen', '1');
+    } catch {
+      // ignore
+    }
+    setVisible(false);
+    setTimeout(() => {
+      onCompleteRef.current();
+    }, 100);
+  };
 
   return (
     <div
@@ -135,10 +158,7 @@ export function BootScreen({ onComplete }: BootScreenProps) {
 
         {/* Skip */}
         <button
-          onClick={() => {
-            sessionStorage.setItem('keyush-os-boot-seen', '1');
-            onComplete();
-          }}
+          onClick={handleSkip}
           style={{
             marginTop: '32px',
             background: 'none',

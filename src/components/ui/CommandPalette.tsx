@@ -42,8 +42,8 @@ export function CommandPalette({ isOpen, onClose, onOpenApp }: CommandPalettePro
       id: 'contact-linkedin',
       type: 'contact' as const,
       title: 'LinkedIn',
-      subtitle: 'linkedin.com/in/keyush',
-      action: () => { window.open('https://linkedin.com/in/keyush', '_blank', 'noreferrer'); onClose(); },
+      subtitle: 'linkedin.com/in/keyush-sai',
+      action: () => { window.open('https://www.linkedin.com/in/keyush-sai/', '_blank', 'noreferrer'); onClose(); },
     },
     {
       id: 'contact-email',

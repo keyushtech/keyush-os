@@ -36,7 +36,7 @@ export const ownerProfile = {
 
   conversion: {
     primaryLabel: 'Connect on LinkedIn',
-    primaryUrl: 'https://linkedin.com/in/keyush',
+    primaryUrl: 'https://www.linkedin.com/in/keyush-sai/',
     secondaryLabel: 'View Resume',
     secondaryUrl: '/resume',
     bookingUrl: '',
@@ -343,8 +343,8 @@ export const ownerProfile = {
     },
     {
       network: 'LinkedIn',
-      handle: 'keyush',
-      url: 'https://linkedin.com/in/keyush',
+      handle: 'keyush-sai',
+      url: 'https://www.linkedin.com/in/keyush-sai/',
       purpose: 'Professional network, internship applications, technical community',
       status: 'active',
     },
@@ -410,7 +410,7 @@ Recruiters from Google, GCP, and deep-tech orgs.
 CONTACT
 ───────────────────────────────
 velagapudik@iitbhilai.ac.in
-linkedin.com/in/keyush
+linkedin.com/in/keyush-sai
 github.com/keyushtech`,
 
   legal: {

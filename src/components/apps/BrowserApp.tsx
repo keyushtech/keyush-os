@@ -14,7 +14,7 @@ const BOOKMARKS = [
   },
   {
     label: 'LinkedIn',
-    url: 'https://linkedin.com/in/keyush',
+    url: 'https://www.linkedin.com/in/keyush-sai/',
     description: 'Professional profile',
   },
 ];

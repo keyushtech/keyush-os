@@ -17,7 +17,7 @@ This is a fresh build with no inherited reference implementation. All identity t
 | OS name | — | `Keyush OS` (from ownerProfile) |
 | Domain | — | `keyushtech.vercel.app` (from ownerProfile) |
 | Email | — | `velagapudik@iitbhilai.ac.in` (from ownerProfile) |
-| LinkedIn | — | `linkedin.com/in/keyush` (from ownerProfile) |
+| LinkedIn | — | `https://www.linkedin.com/in/keyush-sai/` (from ownerProfile) |
 | GitHub | — | `github.com/keyushtech` (from ownerProfile) |
 | Location | — | `IIT Bhilai, India` (from ownerProfile) |
 | Avatar | — | `github.com/keyushtech.png` (from ownerProfile) |
@@ -54,7 +54,7 @@ grep -r "velagapudik@iitbhilai.ac.in" src/ # confirm email is correct
 - [x] No secrets in repository
 - [x] Avatar sourced only from `github.com/keyushtech.png`
 - [x] Email is `velagapudik@iitbhilai.ac.in`
-- [x] LinkedIn is `linkedin.com/in/keyush`
+- [x] LinkedIn is `https://www.linkedin.com/in/keyush-sai/`
 - [x] GitHub is `github.com/keyushtech`
 
 ---
