@@ -57,10 +57,11 @@ Single-page application — all routes are handled client-side. No server-side r
 
 | Element | Status |
 |---|---|
-| Wallpaper | Dark radial gradient (`#17181e → #0D0D10 → #0A0A0C`) |
-| SVG noise overlay | 4% opacity `feTurbulence` filter |
+| Video Wallpaper | `public/wallpaper.mp4` (1080p web-optimized H.264 loop of convenience store in the rain, 7.7 MB) |
+| Poster Fallback | `public/wallpaper-poster.jpg` (instant initial frame for fast mobile paint, 293 KB) |
+| Atmosphere Overlay | Radial gradient overlay (`rgba(10,10,12,0.40) → rgba(10,10,12,0.72)`) for high-contrast text and window vibrancy |
 | Mode | Dark only |
-| Protected | Yes — no changes without explicit Build Contract approval |
+| Protected | Yes — approved by owner |
 
 ## Local Storage Keys
 

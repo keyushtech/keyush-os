@@ -20,12 +20,33 @@ export function Desktop({ onOpen, openAppIds }: DesktopProps) {
       }}
       aria-label="Desktop"
     >
-      {/* Wallpaper — radial gradient from dark center to near-black */}
+      {/* Video Wallpaper */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/wallpaper-poster.jpg"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+        aria-hidden="true"
+      >
+        <source src="/wallpaper.mp4" type="video/mp4" />
+      </video>
+
+      {/* Atmospheric gradient overlay for contrast and text readability */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 100% 80% at 50% 30%, #17181e 0%, #0D0D10 45%, #0A0A0C 100%)',
+          background: 'radial-gradient(ellipse 100% 100% at 50% 30%, rgba(10, 10, 12, 0.40) 0%, rgba(10, 10, 12, 0.72) 100%)',
+          zIndex: 1,
         }}
         aria-hidden="true"
       />
@@ -39,6 +60,7 @@ export function Desktop({ onOpen, openAppIds }: DesktopProps) {
           height: '100%',
           opacity: 0.04,
           pointerEvents: 'none',
+          zIndex: 2,
         }}
         aria-hidden="true"
       >
