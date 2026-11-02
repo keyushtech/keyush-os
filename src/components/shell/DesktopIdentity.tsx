@@ -113,7 +113,7 @@ export function DesktopIdentity({ onOpen }: DesktopIdentityProps) {
       </p>
 
       {/* CTAs */}
-      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'all' }}>
+      <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', pointerEvents: 'auto' }}>
         <a
           href={ownerProfile.conversion.primaryUrl}
           target="_blank"

@@ -35,7 +35,14 @@ function AppContent({ appId }: { appId: AppId }) {
 }
 
 export default function App() {
-  const [booted, setBooted] = useState(false);
+  const [showBoot, setShowBoot] = useState(() => {
+    try {
+      return !sessionStorage.getItem('keyush-os-boot-seen');
+    } catch {
+      return false;
+    }
+  });
+
   const [searchOpen, setSearchOpen] = useState(false);
   const { state, openWindow, closeWindow, focusWindow, moveWindow, maximizeWindow } = useWindowManager();
 
@@ -49,12 +56,8 @@ export default function App() {
 
   const openAppIds = state.windows.map((w) => w.appId);
 
-  if (!booted) {
-    return <BootScreen onComplete={() => setBooted(true)} />;
-  }
-
   return (
-    <>
+    <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
       {/* System navigation */}
       <MenuBar onSearch={() => setSearchOpen(true)} />
 
@@ -84,7 +87,11 @@ export default function App() {
         onClose={() => setSearchOpen(false)}
         onOpenApp={handleOpen}
       />
-    </>
+
+      {/* Boot Screen Overlay (z-index: 9000) */}
+      {showBoot && (
+        <BootScreen onComplete={() => setShowBoot(false)} />
+      )}
+    </div>
   );
 }
-

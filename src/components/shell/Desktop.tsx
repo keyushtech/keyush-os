@@ -55,6 +55,7 @@ export function Desktop({ onOpen, openAppIds }: DesktopProps) {
           position: 'absolute',
           top: '12px',
           left: '12px',
+          width: '188px',
           bottom: '88px', // above dock
           zIndex: 400,
           overflowY: 'auto',

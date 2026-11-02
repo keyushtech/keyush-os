@@ -19,11 +19,13 @@ export function BootScreen({ onComplete }: BootScreenProps) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Check session flag for repeat visitors
-    const seen = sessionStorage.getItem('keyush-os-boot-seen');
-    if (seen) {
-      onComplete();
-      return;
+    try {
+      if (sessionStorage.getItem('keyush-os-boot-seen')) {
+        onComplete();
+        return;
+      }
+    } catch {
+      // ignore
     }
 
     let i = 0;
@@ -36,24 +38,25 @@ export function BootScreen({ onComplete }: BootScreenProps) {
         setTimeout(() => {
           setVisible(false);
           setTimeout(() => {
-            sessionStorage.setItem('keyush-os-boot-seen', '1');
+            try { sessionStorage.setItem('keyush-os-boot-seen', '1'); } catch { /* */ }
             onComplete();
-          }, 400);
-        }, 600);
+          }, 350);
+        }, 400);
       }
-    }, 200);
+    }, 180);
 
     return () => clearInterval(id);
   }, [onComplete]);
-
-  if (!visible) return null;
 
   return (
     <div
       className="boot-screen"
       role="status"
       aria-label="Keyush OS loading"
-      style={{ opacity: visible ? 1 : 0 }}
+      style={{
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+      }}
     >
       <div style={{ maxWidth: '480px', width: '100%', padding: '32px' }}>
         {/* Logo */}

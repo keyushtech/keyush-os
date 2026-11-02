@@ -39,9 +39,9 @@ export function AppGrid({ onOpen, openAppIds }: AppGridProps) {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, 88px)',
+        gridTemplateColumns: 'repeat(2, 88px)',
         gap: '4px',
-        padding: '12px',
+        padding: '6px',
         alignContent: 'start',
         justifyContent: 'start',
       }}

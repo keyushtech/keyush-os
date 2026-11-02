@@ -17,3 +17,4 @@ system for any person, profession, studio, agency, or founder.
 - Design: Dark Mode Native macOS System UI (Frosted Glass, Slate Obsidian, Developer Sky Blue)
 - Icons: Lucide Icons (ISC)
 - Centerpiece Case Study: The Grand Scheme (IIT Bhilai Super App)
+

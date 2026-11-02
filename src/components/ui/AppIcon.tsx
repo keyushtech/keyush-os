@@ -32,3 +32,4 @@ export function AppIcon({ name, size = 24 }: { name: string; size?: number }) {
   const IconComponent = ICON_MAP[name] ?? Box;
   return <IconComponent size={size} strokeWidth={1.5} />;
 }
+
